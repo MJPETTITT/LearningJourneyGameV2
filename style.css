@@ -128,11 +128,7 @@ body {
 	font-size: 1.5em;
 }
 
-#timer {
-	font-size: 2em;
-	font-weight: bold;
-	margin: 20px;
-}
+
 
 .instructions {
 		margin: 20px;
@@ -387,55 +383,55 @@ header a {
 
 /*classes added for pawns*/
 
-.player-01 {
+.player-1 {
 	background: radial-gradient(circle at top, #EB1D24,#BB2D38);
 	width: 100%;
 	height: 100%;
 }
 
-.player-02 {
+.player-2 {
 	background: radial-gradient(circle at top, #19BDCD,#00ADBF);
 	width: 100%;
 	height: 100%;
 }
 
-.player-03 {
+.player-3 {
 	background: radial-gradient(circle at top, #F48037,#EF3A79);
 	width: 100%;
 	height: 100%;
 }
 
-.player-04 {
+.player-4 {
 	background: radial-gradient(circle at top, #00A8E4,#006BAD);
 	width: 100%;
 	height: 100%;
 }
 
-.player-05 {
+.player-5 {
 	background: radial-gradient(circle at top, #FEF229,#CEDD41);
 	width: 100%;
 	height: 100%;
 }
 
-.player-06 {
+.player-6 {
 	background: radial-gradient(circle at top, #8B3D96,#34307F);
 	width: 100%;
 	height: 100%;
 }
 
-.player-07 {
+.player-7 {
 	background: radial-gradient(circle at top, #AED24A,#00A955);
 	width: 100%;
 	height: 100%;
 }
 
-.player-08 {
+.player-8 {
 	background: radial-gradient(circle at top, #323232,#111111);
 	width: 100%;
 	height: 100%;
 }
 
-.player-09 {
+.player-9 {
 	background: radial-gradient(circle at top, #DEDEDE,#DDDDDD);
 	width: 100%;
 	height: 100%;
@@ -506,4 +502,32 @@ header a {
 
 .player-name {
 	padding: 20px;
+}
+
+.active {
+	opacity: 1;
+	transition: transform ease 0.5s; 
+}
+
+.inactive {
+	opacity: 0.4;
+	transition: transform ease 0.5s; 
+}
+
+#timer-container {
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	background: #323232;
+	color: white;
+	border-bottom-left-radius: 20px;
+	padding: 10px;
+	width: 200px;
+	height: 80px;
+}
+
+#timer {
+	font-size: 2em;
+	font-weight: bold;
+	/*margin: 20px;*/
 }

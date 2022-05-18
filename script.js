@@ -6,6 +6,7 @@ var currentHowTo = 4;
 
 var playerList = [];
 
+var currentPlayer = -1;
 
 var questions = ["WHAT WILL YOU DO BETTER OR DIFFERENTLY WHEN YOU GO BACK TO WORK?","WHICH ARE THE SITUATIONS WHERE YOU ARE MOST LIKELY TO APPLY WHAT YOU HAVE LEARNED?","WHAT ARE THE GREY AREAS IN TERMS OF CONTENT? ","WHAT IS STILL NOT CLEAR?","HOW DID YOU CONTRIBUTE TO THE EXPERIENCE?","WHAT MADE THE EXPERIENCE DIFFICULT?","WHAT DID YOU LEARN ABOUT YOURSELF AS A LEADER?","WHAT DID YOU LEARN ABOUT YOURSELF AS A LEARNER?","WHAT ELEMENTS IN YOUR WORK CONTEXT WILL HELP YOU TO APPLY YOUR LEARNING?","WHAT ELEMENTS IN YOUR WORK CONTEXT WILL MAKE IT DIFFICULT FOR YOU TO APPLY YOUR LEARNING?","HOW WILL YOU SHARE WHAT YOU HAVE LEARNED WITH YOUR MANAGER AND YOUR TEAM?","WHAT DID WE LEARN AS A GROUP?","WAS THERE A GROWTH OR DEVELOPMENT BEYOND INDIVIDUAL LEARNING?","WHAT ARE YOUR KEY INSIGHTS IN TERMS OF CONTENT?","WHICH BEHAVIOURS DO YOU COMMIT TO CHANGING?","WHICH BEHAVIOURS DO YOU WANT TO CHANGE?","WHICH BEHAVIOURS HAVE YOU ALREADY CHANGED?","HOW WILL YOU MAKE SPACE FOR LEARNING AT WORK?","WHAT IS YOUR NEXT GOAL OR MILESTONE IN TERMS OF LEARNING?","WHAT SUPPORT DO YOU NEED IN ORDER TO REACH YOUR NEXT LEARNING GOALS?","SHARE THREE BURNING QUESTIONS YOU HAVE AT THE MOMENT."]
 
@@ -31,13 +32,13 @@ function shuffle(array) {
 
 function flip() {
 	document.getElementById("card-a").classList.add("flipped");
-setTimeout(function() {document.getElementById("card-b").classList.add("flipped")}, 100);
+/*setTimeout(function() {document.getElementById("card-b").classList.add("flipped")}, 100);*/
 	isflipped = 1;
 }
 
 function unflip() {
 	document.getElementById("card-a").classList.remove("flipped");
-setTimeout(function() {document.getElementById("card-b").classList.remove("flipped")}, 100);
+/*setTimeout(function() {document.getElementById("card-b").classList.remove("flipped")}, 100);*/
 	isflipped = 0;
 }
 
@@ -49,13 +50,17 @@ function generateRandom(min, max, except) {
 function populate() {
 	document.getElementById("question-container").innerText = questions[currentQuestion];
 	randomNum = generateRandom(0, 3, currentHowTo);
+	/*
 	document.getElementById("how-to-container").innerText = howToAnswer[randomNum];
 	currentHowTo = randomNum;
+	*/
 }
 
 function depopulate() {
 	document.getElementById("question-container").innerText = "";
+	/*
 	document.getElementById("how-to-container").innerText = "";
+	*/
 }
 
 function progress() {
@@ -71,20 +76,44 @@ function populateNumber() {
 	document.getElementById("question-number").innerHTML = "<h3>Question " + (currentQuestion + 1) + "/21 </h3>";
 }
 
+function progressPlayer() {
+	
+	if (playerList == 0) {
+		/*do nothing, no players*/
+	} else {
+	
+	if (currentPlayer == playerList.length - 1) {
+		currentPlayer = 0;
+	} else {
+		currentPlayer++;
+	}
+	var pawnList = document.getElementsByClassName("pawn-container");
+	
+	for (i=0; i<pawnList.length; i++) {
+		pawnList[i].classList.remove("active");
+		pawnList[i].classList.add("inactive");
+	}
+	
+	pawnList[currentPlayer].classList.remove("inactive");
+	pawnList[currentPlayer].classList.add("active");
+}
+}
+
 function flipOnOff() {
 	if (isflipped == 0) {
 		flip();
 		populate();
 		populateNumber();
 		startTimer();
-		unhide(document.getElementById("how-to-container"));
+		progressPlayer();
+		/*unhide(document.getElementById("how-to-container"));*/
 		unhide(document.getElementById("question-container"));
 	} else {
 		unflip();
 		/*depopulate()*/
 		progress();
 		stopTimer();
-		hide(document.getElementById("how-to-container"));
+		/*hide(document.getElementById("how-to-container"));*/
 		hide(document.getElementById("question-container"));
 	}
 }
@@ -101,7 +130,7 @@ function startTimer() {
   
   document.getElementById('timer').innerHTML =
     m + ":" + s;
-  console.log(m)
+  /*console.log(m)*/
   timer5 = setTimeout(startTimer, 1000);
   
 }
@@ -161,10 +190,28 @@ function populatePawns() {
 	
 	var pawnContainer = document.getElementById("pawns-all").innerHTML;
 	
-	document.getElementById("pawns-all").innerHTML = pawnContainer + "<div class='pawn-container'>\n      <div class='player-pawn'>\n        <div class='player-0" + playerNumber + "'></div>\n      </div>\n      <div class='pawn-shadow'></div>\n\t\t\t<div class='player-name'>" + playerName + "</div>\n\t\t</div>\n\t\t\n\t\t";
+	document.getElementById("pawns-all").innerHTML = pawnContainer + "<div class='pawn-container'>\n      <div class='player-pawn'>\n        <div class='player-" + playerNumber + "'></div>\n      </div>\n      <div class='pawn-shadow'></div>\n\t\t\t<div class='player-name'>" + playerName + "</div>\n\t\t</div>\n\t\t\n\t\t";
 	
 	document.getElementById("player-name").value = "";
 		}
 		}
 }
+
+/*triggers onclick on enter*/
+
+function addEnter() {
+// Get the input field
+var input = document.getElementById("player-name");
+
+// Execute a function when the user presses a key on the keyboard
+input.addEventListener("keypress", function(event) {
+  // If the user presses the "Enter" key on the keyboard
+  if (event.key === "Enter") {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Trigger the button element with a click
+    document.getElementById("add-player").click();
+  }
+});
+	}
   
