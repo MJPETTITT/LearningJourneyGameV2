@@ -4,6 +4,8 @@ var currentQuestion = 0;
 var isflipped = 0;
 var currentHowTo = 4;
 
+var playerList = [];
+
 
 var questions = ["WHAT WILL YOU DO BETTER OR DIFFERENTLY WHEN YOU GO BACK TO WORK?","WHICH ARE THE SITUATIONS WHERE YOU ARE MOST LIKELY TO APPLY WHAT YOU HAVE LEARNED?","WHAT ARE THE GREY AREAS IN TERMS OF CONTENT? ","WHAT IS STILL NOT CLEAR?","HOW DID YOU CONTRIBUTE TO THE EXPERIENCE?","WHAT MADE THE EXPERIENCE DIFFICULT?","WHAT DID YOU LEARN ABOUT YOURSELF AS A LEADER?","WHAT DID YOU LEARN ABOUT YOURSELF AS A LEARNER?","WHAT ELEMENTS IN YOUR WORK CONTEXT WILL HELP YOU TO APPLY YOUR LEARNING?","WHAT ELEMENTS IN YOUR WORK CONTEXT WILL MAKE IT DIFFICULT FOR YOU TO APPLY YOUR LEARNING?","HOW WILL YOU SHARE WHAT YOU HAVE LEARNED WITH YOUR MANAGER AND YOUR TEAM?","WHAT DID WE LEARN AS A GROUP?","WAS THERE A GROWTH OR DEVELOPMENT BEYOND INDIVIDUAL LEARNING?","WHAT ARE YOUR KEY INSIGHTS IN TERMS OF CONTENT?","WHICH BEHAVIOURS DO YOU COMMIT TO CHANGING?","WHICH BEHAVIOURS DO YOU WANT TO CHANGE?","WHICH BEHAVIOURS HAVE YOU ALREADY CHANGED?","HOW WILL YOU MAKE SPACE FOR LEARNING AT WORK?","WHAT IS YOUR NEXT GOAL OR MILESTONE IN TERMS OF LEARNING?","WHAT SUPPORT DO YOU NEED IN ORDER TO REACH YOUR NEXT LEARNING GOALS?","SHARE THREE BURNING QUESTIONS YOU HAVE AT THE MOMENT."]
 
@@ -144,4 +146,25 @@ function rotateFunction(){
 	}, 1000); //5000 = 5 second
 }
 
+function populatePawns() {
+	
+	if (playerList.length > 8) {
+		/*do nothing, too many players; max 9*/
+	} else {
+	
+	var playerName = document.getElementById("player-name").value;
+	
+	if (playerName == "") {
+		/*do nothinf, field is empty*/
+	} else {
+	var playerNumber = playerList.push(playerName);
+	
+	var pawnContainer = document.getElementById("pawns-all").innerHTML;
+	
+	document.getElementById("pawns-all").innerHTML = pawnContainer + "<div class='pawn-container'>\n      <div class='player-pawn'>\n        <div class='player-0" + playerNumber + "'></div>\n      </div>\n      <div class='pawn-shadow'></div>\n\t\t\t<div class='player-name'>" + playerName + "</div>\n\t\t</div>\n\t\t\n\t\t";
+	
+	document.getElementById("player-name").value = "";
+		}
+		}
+}
   

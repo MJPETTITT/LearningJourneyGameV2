@@ -28,6 +28,7 @@
 html {
   font-family: Gotham, Arial, Helvetica, sans-serif;
 	font-weight: 500;
+	overflow: scroll;
 }
 
 body {
@@ -35,6 +36,7 @@ body {
 	background: #EFEFEF;
 	text-align: center;
 	margin: 0;
+	
 }
 
 .flip-card {
@@ -365,7 +367,7 @@ header a {
 	background-color: #00A955;
 	width: 300px;
 	text-align: center;
-	margin: 40px auto;
+	margin: 20px auto;
 	padding: 10px;
 	border-radius: 10px;
 	color: white;
@@ -380,6 +382,98 @@ header a {
 .button:active {
 	/*box-shadow: 0 5px 20px rgba(0,0,0,0.0);*/
 	transform: scale(0.97);
+}
+
+
+/*classes added for pawns*/
+
+.player-01 {
+	background: radial-gradient(circle at top, #EB1D24,#BB2D38);
+	width: 100%;
+	height: 100%;
+}
+
+.player-02 {
+	background: radial-gradient(circle at top, #19BDCD,#00ADBF);
+	width: 100%;
+	height: 100%;
+}
+
+.player-03 {
+	background: radial-gradient(circle at top, #F48037,#EF3A79);
+	width: 100%;
+	height: 100%;
+}
+
+.player-04 {
+	background: radial-gradient(circle at top, #00A8E4,#006BAD);
+	width: 100%;
+	height: 100%;
+}
+
+.player-05 {
+	background: radial-gradient(circle at top, #FEF229,#CEDD41);
+	width: 100%;
+	height: 100%;
+}
+
+.player-06 {
+	background: radial-gradient(circle at top, #8B3D96,#34307F);
+	width: 100%;
+	height: 100%;
+}
+
+.player-07 {
+	background: radial-gradient(circle at top, #AED24A,#00A955);
+	width: 100%;
+	height: 100%;
+}
+
+.player-08 {
+	background: radial-gradient(circle at top, #323232,#111111);
+	width: 100%;
+	height: 100%;
+}
+
+.player-09 {
+	background: radial-gradient(circle at top, #DEDEDE,#DDDDDD);
+	width: 100%;
+	height: 100%;
+}
+
+.input-text {
+	font-size: 1.5em;
+	font-family: inherit;
+	padding: 10px 5px;
+	margin: 20px auto;
+}
+
+.pawn-container {
+	display: inline-block;
+	/*position: relative;*/
+	width: 100px;
+	height: 100px;
+	margin: auto;
+	
+}
+
+#player-container {
+	width: 1200px;
+	margin: auto;
+}
+
+#pawns-all {
+	margin: auto;
+	padding: 20px;
+	overflow: auto;
+}
+
+
+#player-list {
+	margin: 40px auto;
+	width: 100%;
+	height: 150px;
+	position: relative;
 }
 
 .player-pawn {
@@ -410,52 +504,6 @@ header a {
 	
 }
 
-/*classes added for pawns*/
-
-.player-01 {
-	background: radial-gradient(circle at top, #EB1D24,#BB2D38);
-	width: 100%;
-	height: 100%;
-}
-
-.player-02 {
-	background: radial-gradient(circle at top, #AED24A,#00A955);
-	width: 100%;
-	height: 100%;
-}
-
-.player-03 {
-	background: radial-gradient(circle at top, #EB1D24,#BB2D38);
-	width: 100%;
-	height: 100%;
-}
-
-.player-04 {
-	background: radial-gradient(circle at top, #EB1D24,#BB2D38);
-	width: 100%;
-	height: 100%;
-}
-
-.player-05 {
-	background: radial-gradient(circle at top, #EB1D24,#BB2D38);
-	width: 100%;
-	height: 100%;
-}
-
-.player-06 {
-	background: radial-gradient(circle at top, #EB1D24,#BB2D38);
-	width: 100%;
-	height: 100%;
-}
-
-.player-07 {
-	background: radial-gradient(circle at top, #EB1D24,#BB2D38);
-	width: 100%;
-	height: 100%;
-}
-
-.player-08 {
-	background: radial-gradient(circle at top, #EB1D24,#BB2D38);
-	width: 100%;
-	height: 100%;
+.player-name {
+	padding: 20px;
 }
