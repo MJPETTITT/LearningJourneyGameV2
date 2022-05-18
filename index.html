@@ -8,20 +8,25 @@
 
 <body onload="shuffle(questions); addEnter();">
 <header>
-  <div class="header-left">
-    <div class="logo"></div>
-  </div>
+
+    <div class="logo header-left"></div>
+    <div class="guide-button header-left" onClick="openIt(document.getElementById('guide-container')); openIt(document.getElementById('whiteout'))">Instructions</div>
+    <input class="guide-button header-left input-text" id="player-name" type="text" placeholder="Add up to 9 players here.">
+	<div class="guide-button header-left button" id="add-player" onClick="populatePawns();">Add player</div>
+	
+	<div class="guide-button header-right"><div id="timer">5:00 </div></div>
+	<div class="guide-button header-right"><div id="question-number">Question 0/21 </div></div>
+	
+
 </header>
+
+	
 <div id="player-container">
-    <h2>Want to add players?</h2>
-    <h3>You can add a player list if you want to keep track of whose turn it is to answer.</h3>
-    <input class="input-text" id="player-name" type="text" placeholder="Type name here.">
-    <div id="add-player" class="button" onClick="populatePawns();">Add Player</div>
-	  
+
     <div id="player-list">
 		
 		<div id="pawns-all">
-		<!--
+<!--
 		<div class="pawn-container">
       <div class="player-pawn">
         <div class="player-1 active"></div>
@@ -95,7 +100,7 @@
       <div class="pawn-shadow"></div>
 			<div class="player-name">Jerry</div>
 		</div>
-		-->
+-->
     </div>
     </div>
 	  
@@ -131,14 +136,27 @@
     </div>
   </div>
 </div>
-<div class="instructions">
-  <div id="question-number">
-    <h3>Question 0/21</h3>
-  </div>
-	<div id="timer-container">
-  <div>Discuss for 5 minutes before moving on.</div>
-  <div id="timer">5:00</div>
+
+	<div id="whiteout" class="open"></div>
+	
+	
+	<div id="guide-container" class="open" onClick="unopenIt(document.getElementById('guide-container'));unopenIt(document.getElementById('whiteout'));">
+		<div class="x-button">X</div>
+	<h2>The Learning Journey Game</h2>
+		<h3>How to play</h3>
+		<p>1. Add up to 9 players by entering their names at the top of the page and clicking the green button.</p>
+		<p>2. Once you are ready to play, click the pink card deck to reveal a question.</p>
+		<p>3. Click the spinninng wheel to see how you should answer this question.</p>
+		<div class="icon-guide">
+		<div><img class="guide-icon" alt="icon" src="images/icons-01.png"><span class="guide-icon-text">Answer the question yourself.</span> </div>
+		<div><img class="guide-icon" alt="icon"  src="images/icons-02.png"><span class="guide-icon-text">Answer the question by drawing. Others interpret it. Then explain.</span></div>
+		<div><img class="guide-icon" alt="icon" src="images/icons-03.png"><span class="guide-icon-text">Ask the question to the group. Facilitate the discussion.</span></div>
+		<div><img class="guide-icon" alt="icon"  src="images/icons-04.png"><span class="guide-icon-text">Ask the next player on the list.</span></div>
 		</div>
+		<p>4. Spend 5 minutes on the question. There is a timer on screen that will start when you turn the card.</p>
+		<p>5. Click the card deck to stop your turn, and click again to start with the next player.</p>
+		<p>Keep going until you have completed all of the questions!</p>
+			
 </div>
 </body>
 </html>

@@ -28,7 +28,8 @@
 html {
   font-family: Gotham, Arial, Helvetica, sans-serif;
 	font-weight: 500;
-	overflow: scroll;
+	overflow-y: scroll;
+	overflow-x: hidden;
 }
 
 body {
@@ -123,10 +124,7 @@ body {
 	display: inline;
 }
 
-#question-number {
-	text-transform: uppercase;
-	font-size: 1.5em;
-}
+
 
 
 
@@ -205,7 +203,7 @@ span{
   height: 50%;
   /*display: inline-block;*/
   position: absolute;
-	box-shadow: 0 6px 10px 0 rgba(0,0,0,0.2);
+	/*box-shadow: 0 6px 10px 0 rgba(0,0,0,0.2);*/
 }
 .span1{
   clip-path: polygon(0 92%, 100% 50%, 0 8%);
@@ -300,11 +298,10 @@ span b{
 
 .float-right {
 	float: left;
-	/*margin-left: 50%;*/
 }
 
 #game-container {
-	margin: 50px 0 50px 0;
+	margin: 50px 0 0 0;
 	height: 550px;
 }
 
@@ -361,13 +358,8 @@ header a {
 /*added for buttons*/
 .button {
 	background-color: #00A955;
-	width: 300px;
 	text-align: center;
-	margin: 20px auto;
-	padding: 10px;
-	border-radius: 10px;
 	color: white;
-	box-shadow: 0 5px 20px rgba(0,0,0,0.2);
 	cursor: pointer;
 }
 
@@ -438,10 +430,11 @@ header a {
 }
 
 .input-text {
-	font-size: 1.5em;
 	font-family: inherit;
-	padding: 10px 5px;
-	margin: 20px auto;
+	padding: 30px 5px;
+	width: 200px;
+	background-color: #323232;
+	color: white;
 }
 
 .pawn-container {
@@ -522,12 +515,91 @@ header a {
 	color: white;
 	border-bottom-left-radius: 20px;
 	padding: 10px;
-	width: 200px;
+	width: 400px;
 	height: 80px;
 }
 
 #timer {
-	font-size: 2em;
+	/*font-size: 2em;*/
 	font-weight: bold;
 	/*margin: 20px;*/
+}
+
+.guide-button {
+	padding: 40px 20px;
+	cursor: pointer;
+}
+
+#guide-container {
+	position: absolute;
+	width: 500px;
+	height: 100vh;
+	background-color: #323232;
+	transition:left 0.5s ease;
+	z-index: 0;
+	top: 0;
+	cursor: pointer;
+	color: white;
+	padding: 40px;
+}
+
+#guide-container.unopen {
+	left: -600px;
+	
+}
+
+#guide-container.open {
+	left: 0px;
+	
+}
+
+.ilb {
+	width: 150px;
+	display: inline-block;
+}
+
+#question-number {
+	text-transform: uppercase;
+	/*font-size: 1.5em;*/
+	margin: auto;
+}
+
+.guide-icon {
+	width: 40px;
+	margin: 10px;
+}
+
+.icon-guide {
+	text-align: left;
+}
+
+.x-button {
+position: absolute;
+	top: 10px;
+	right: 10px;
+	font-weight: 900;
+}
+
+.guide-icon-text {
+	margin: auto;
+	padding: 1em; 
+}
+
+#whiteout {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: #EFEFEF;
+	transition: opacity 0.5s;
+}
+
+#whiteout.unopen {
+	opacity: 0;
+	pointer-events: none;
+}
+
+#whiteout.open {
+	opacity: 0.8;
 }

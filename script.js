@@ -73,7 +73,7 @@ function progress() {
 }
 
 function populateNumber() {
-	document.getElementById("question-number").innerHTML = "<h3>Question " + (currentQuestion + 1) + "/21 </h3>";
+	document.getElementById("question-number").innerHTML = "Question " + (currentQuestion + 1) + "/21";
 }
 
 function progressPlayer() {
@@ -215,3 +215,12 @@ input.addEventListener("keypress", function(event) {
 });
 	}
   
+function unopenIt(a) {
+	a.classList.remove("open");
+	a.classList.add("unopen");
+}
+
+function openIt(a) {
+	a.classList.add("open");
+	a.classList.remove("unopen");
+}
