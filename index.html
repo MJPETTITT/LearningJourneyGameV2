@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+<script src="script.js"></script>
+</head>
+
+<body onload="shuffle(questions);">
+	
+	<header>
+	<div class="header-left">
+  <div class="logo"></div>
+	</div>
+	
+</header>
+
+
+	
+	<div id="player-container">
+			<div>
+			<h2>Want to add players?</h2>
+<h3>You can add a player list if you want to keep track of whose turn it is to answer.</h3>
+				<div class="button">Add Player</div>
+				
+			<div id="player-list">
+				<div class="player-pawn">
+					<div class="player-01"></div>
+				</div>
+				<div class="pawn-shadow"></div>
+
+		</div>
+	</div>
+	</div>
+	
+<div id="game-container">
+	
+<div id="flipper" class="float-left">
+  <div class="flip-card " id="card-a" onclick="flipOnOff();">
+    <div class="flip-card-inner">
+      <div class="flip-card-front" id="card-front-a">
+        <div class="container">
+          <div class="center">
+            <h1>question</h1>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card-back" id="card-back-a">
+        <div class="container">
+          <div class="center">
+            <h2 id="question-container">how would you do this?</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+	
+<div id="mainbox-container" class="float-right">
+	<div id="mainbox" class="mainbox">
+    <div id="box" class="box">
+      <div class="box1">
+        <span class="span1"><b><img alt="icon" class="icon" src="images/icons-01.png"></b></span>
+        <span class="span2"><b><img alt="icon" class="icon" src="images/icons-02.png"></b></span>
+        <span class="span3"><b><img alt="icon" class="icon" src="images/icons-03.png"></b></span>
+        <span class="span4"><b><img alt="icon" class="icon" src="images/icons-04.png"></b></span>
+      </div>
+      <div class="box2">
+        <span class="span1"><b><img alt="icon" class="icon" src="images/icons-01.png"></b></span>
+        <span class="span2"><b><img alt="icon" class="icon" src="images/icons-02.png"></b></span>
+        <span class="span3"><b><img alt="icon" class="icon" src="images/icons-03.png"></b></span>
+        <span class="span4"><b><img alt="icon" class="icon" src="images/icons-04.png"></b></span>
+      </div>
+    </div> 
+    <button class="spin" onclick="rotateFunction()">SPIN</button>
+  </div>
+	</div>
+	
+	</div>
+
+	<div class="instructions">
+
+<div id="question-number"><h3>Question 0/21</h3></div>
+<h4>Discuss the question for 5 minutes before moving on.</h4>
+<div id="timer">5:00</div>
+		</div>
+</body>
+</html>

@@ -1,0 +1,461 @@
+@charset "utf-8";
+/* CSS Document */
+
+@font-face {
+    font-display: swap;
+    font-family: Gotham;
+    font-style: normal;
+    font-weight: 200;
+    src: url(/fonts/GothamSSm-Book_Web.woff2)
+}
+
+@font-face {
+    font-display: swap;
+    font-family: Gotham;
+    font-style: normal;
+    font-weight: 500;
+    src: url(/fonts/GothamSSm-Bold_Web.woff2)
+}
+
+@font-face {
+    font-display: swap;
+    font-family: Gotham;
+    font-style: normal;
+    font-weight: 900;
+    src: url(/fonts/GothamSSm-Black_Web.woff2)
+}
+
+html {
+  font-family: Gotham, Arial, Helvetica, sans-serif;
+	font-weight: 500;
+}
+
+body {
+	color: #323232;
+	background: #EFEFEF;
+	text-align: center;
+	margin: 0;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 220px;
+  height: 343px;
+  perspective: 1000px;
+	/*display: inline-block;*/
+	margin: 0px 50% 0px 50%;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  /*box-shadow: 0 6px 10px 0 rgba(0,0,0,0.2);*/
+	border-radius: 20px;
+}
+
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+	border-radius: 20px;
+	border:solid white 12px;
+	padding: 10px;
+	box-shadow: 0 6px 10px 0 rgba(0,0,0,0.2);
+	
+}
+
+#card-front-a {
+  background-image: linear-gradient(#EF3A79, #F48037);
+  color: #fff;
+}
+
+#card-front-b {
+  background-image: linear-gradient(#006BAD, #00A8E4);
+  color: #fff;
+}
+
+#card-back-a {
+  background-color: #fff;
+  color: #323232;
+}
+
+#card-back-b {
+  background-color: #323232;
+  color: #fff;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+	text-transform: uppercase;
+}
+	
+.container {
+  height: 100%;
+  position: relative;
+  /*border: 3px solid green;*/
+}
+
+.center {
+	width: 100%;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+#flipper {
+	cursor: pointer;
+	margin: 50px 0 100px 0;
+	display: inline;
+}
+
+#question-number {
+	text-transform: uppercase;
+	font-size: 1.5em;
+}
+
+#timer {
+	font-size: 2em;
+	font-weight: bold;
+	margin: 20px;
+}
+
+.instructions {
+		margin: 20px;
+	display: block;
+	position: relative;
+}
+
+.hidden {
+	opacity: 0;
+}
+
+.unhidden {
+	opacity: 100;
+}
+
+.unhidden, .hidden {
+	transition: opacity 0.5s;
+}
+
+
+/*added for spinner*/
+/*
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  outline: none;
+}
+*/
+
+
+body{
+  /*font-family: Open Sans;*/
+  /*display: flex;*/
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+  /*background: rgb(60,60,242);
+  background: linear-gradient(90deg, rgba(60,60,242,1) 0%, rgba(98,245,230,1) 52%, rgba(60,60,242,1) 100%);
+  background-size: cover;*/
+}
+
+.mainbox{
+  position: relative;
+  width: 480px;
+  height: 480px;
+	
+}
+.mainbox:after{
+  position: absolute;
+  content: '';
+  width: 32px;
+  height: 32px;
+  background: url('images/arrow-left.png') no-repeat;
+  background-size: 32px;
+  right: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.box{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: 50%;
+  border: 10px solid #fff;
+  overflow: hidden;
+  transition: transform ease 3s;
+	box-shadow: 0 6px 10px 0 rgba(0,0,0,0.2);
+
+}
+span{
+  width: 50%;
+  height: 50%;
+  /*display: inline-block;*/
+  position: absolute;
+	box-shadow: 0 6px 10px 0 rgba(0,0,0,0.2);
+}
+.span1{
+  clip-path: polygon(0 92%, 100% 50%, 0 8%);
+    background-image: linear-gradient(#EF3A79, #F48037);
+  top: 120px;
+  left: 0;
+}
+.span2{
+  clip-path: polygon(100% 92%, 0 50%, 100% 8%);
+  background-image: linear-gradient(#006BAD, #00A8E4);
+  top: 120px;
+  right: 0;
+}
+.span3{
+  clip-path: polygon(50% 0%, 8% 100%, 92% 100%);
+  background-image: linear-gradient(#CEDD41, #FEF229);
+  bottom: 0;
+  left: 120px;
+}
+.span4{
+  clip-path: polygon(50% 100%, 92% 0, 8% 0);
+  background-image: linear-gradient(#00A955, #AED24A);
+  top: 0;
+  left: 120px;
+}
+
+
+.box1 .span3 b{
+   transform: translate(-50%, -50%) rotate(-270deg);
+}
+.box1 .span1 b,
+.box2 .span1 b{
+  transform: translate(-50%, -50%) rotate(185deg);
+}
+.box2 .span3 b{
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+.box1 .span4 b,
+.box2 .span4 b{
+  transform: translate(-50%, -50%) rotate(-85deg);
+}
+
+.box2{
+  width: 100%;
+  height: 100%;
+  transform: rotate(-135deg);
+}
+span b{
+  font-size: 24px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+}
+
+.spin{
+  position: absolute;
+  top: calc(50% + 10px);
+  left: calc(50% + 10px);
+  transform: translate(-50%, -50%);
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  background-color: #006BAD;
+  color: #fff;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  font-weight: bold;
+  font-size: 22px;
+  cursor: pointer;
+}
+.spin:active{
+  width: 70px;
+  height: 70px;
+  font-size: 20px;
+}
+
+.mainbox.animate:after{
+  animation: animateArrow 0.7s ease infinite;
+}
+@keyframes animateArrow{
+  50%{
+    right: -40px;
+  }
+}
+
+.float-left {
+	float: left;
+	width: 50%;
+}
+
+.float-right {
+	float: left;
+	/*margin-left: 50%;*/
+}
+
+#game-container {
+	margin: 50px 0 50px 0;
+	height: 550px;
+}
+
+.icon {
+	width: 50px;
+	height: 50px;
+}
+
+
+/*added for header*/
+
+/* Style the header with a grey background and some padding */
+header {
+  overflow: hidden;
+  background-color: #323232;
+  /*padding: 20px 10px;*/
+	color: white;
+}
+
+/* Style the header links */
+header a {
+  float: left;
+  color: white;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
+.logo {
+  font-size: 25px;
+  font-weight: bold;
+	width: 200px;
+	height: 100px;
+	background-image: url("images/Vlerick logo standard landscape white.svg");
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+
+/* Float the link section to the right */
+.header-right {
+  float: right;
+}
+
+/* Float the link section to the left */
+.header-left {
+  float: left;
+}
+
+/*added for buttons*/
+.button {
+	background-color: #00A955;
+	width: 300px;
+	text-align: center;
+	margin: 40px auto;
+	padding: 10px;
+	border-radius: 10px;
+	color: white;
+	box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+	cursor: pointer;
+}
+
+.button:hover {
+	opacity: 0.8;
+}
+
+.button:active {
+	/*box-shadow: 0 5px 20px rgba(0,0,0,0.0);*/
+	transform: scale(0.97);
+}
+
+.player-pawn {
+	width: 100px;
+	height: 100px;
+	background-repeat: no-repeat;
+	background-size: contain;
+	margin: auto;	
+	  -webkit-mask-image: url(images/pawn.svg);
+  mask-image: url(images/pawn.svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+	z-index: 0;
+	position: relative;
+}
+
+.pawn-shadow {
+	background-color: black;
+	width: 50px;
+	height: 20px;
+	margin: -15px auto;
+	border-radius: 100px / 40px;
+	overflow: visible;
+	filter: blur(5px)
+		opacity(0.4);
+		z-index: -1;
+	position: relative;
+	
+}
+
+/*classes added for pawns*/
+
+.player-01 {
+	background: radial-gradient(circle at top, #EB1D24,#BB2D38);
+	width: 100%;
+	height: 100%;
+}
+
+.player-02 {
+	background: radial-gradient(circle at top, #AED24A,#00A955);
+	width: 100%;
+	height: 100%;
+}
+
+.player-03 {
+	background: radial-gradient(circle at top, #EB1D24,#BB2D38);
+	width: 100%;
+	height: 100%;
+}
+
+.player-04 {
+	background: radial-gradient(circle at top, #EB1D24,#BB2D38);
+	width: 100%;
+	height: 100%;
+}
+
+.player-05 {
+	background: radial-gradient(circle at top, #EB1D24,#BB2D38);
+	width: 100%;
+	height: 100%;
+}
+
+.player-06 {
+	background: radial-gradient(circle at top, #EB1D24,#BB2D38);
+	width: 100%;
+	height: 100%;
+}
+
+.player-07 {
+	background: radial-gradient(circle at top, #EB1D24,#BB2D38);
+	width: 100%;
+	height: 100%;
+}
+
+.player-08 {
+	background: radial-gradient(circle at top, #EB1D24,#BB2D38);
+	width: 100%;
+	height: 100%;
+}
